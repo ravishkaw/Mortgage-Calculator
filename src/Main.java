@@ -4,16 +4,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        int principal = 0;
-        float annualInterest = 0;
-        byte years = 0;
-
-        Scanner scanner = new Scanner(System.in);
-
-        principal = (int) readNumber("Principal: ", 1000, 1_000_000);
-        annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
-        years = (byte) readNumber("Period (Years): ", 1, 30);
+        int principal = (int) readNumber("Principal: ", 1000, 1_000_000);
+        float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+        byte years = (byte) readNumber("Period (Years): ", 1, 30);
 
         double mortgage = calculateMortgage(principal, annualInterest, years);
 
@@ -43,7 +36,6 @@ public class Main {
         double mortgage = principal
                 * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
                 / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
-
         return mortgage;
     }
 }
